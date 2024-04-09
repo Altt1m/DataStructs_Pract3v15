@@ -67,7 +67,7 @@ void printQUEUE(queue* head)
 {
     queue* element = new queue;
     element = head;
-    if (head == NULL) cout << "Queue is empty";
+    if (head == NULL) cout << "Queue is empty\n";
     else
     {
         cout << "\nQueue:" << endl;
