@@ -88,26 +88,27 @@ void Task()
     // Числа з черги виймати і виводити на екран ті з них, які менше 12.
 
     StackItem* top = nullptr;
-    int x; cin >> x;
-    for (int i = 3; i <= 2 * x + 7; i += 3) top = pushSTACK(top, i);
+    int x; cin >> x; // 1
+    for (int i = 3; i <= 2 * x + 7; i += 3) top = pushSTACK(top, i); // 2
     printSTACK(top);
 
-    queue* head = NULL, * end = NULL;
+    queue* head = NULL, * end = NULL, *q;
     StackItem* element = top;
-    while (element != nullptr)
+    while (element != nullptr) // 3
     {
         pushQUEUE(head, end, element->data);
-        element = element->next;
+        element = element->next; top = popSTACK(top);
     }
     printQUEUE(head);
+    printSTACK(top);
 
-    element = top;
+    q = head;
     cout << "\nQueue:" << endl;
-    while (element != nullptr)
+    while (q != nullptr) // 4
     {
-        if (element->data < 12)
-            cout << element->data << " ";
-        element = element->next;
+        if (q->data < 12)
+            cout << q->data << " ";
+        q = q->next;
     }
     cout << endl;
 }
